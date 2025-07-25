@@ -39,6 +39,14 @@ Java21_GraalCE-Rocky|ghcr.io/vanes430/java:graalce_21-rocky
 Java17_GraalCE-Rocky|ghcr.io/vanes430/java:graalce_17-rocky
 ````
 
+###  GraalVM Oracle JDK (Include EE feature)
+````
+Java24_GraalJDK-Debian|ghcr.io/vanes430/java:graaljdk_24-debian
+Java21_GraalJDK-Debian|ghcr.io/vanes430/java:graaljdk_21-debian
+Java24_GraalJDK-Rocky|ghcr.io/vanes430/java:graaljdk_24-rocky
+Java21_GraalJDK-Rocky|ghcr.io/vanes430/java:graaljdk_21-rocky
+````
+
 ### 💙 Azul Zulu JDK
 ````
 Java21_Zulu-Debian|ghcr.io/vanes430/java:zulu_21-debian
