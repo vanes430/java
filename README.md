@@ -39,7 +39,7 @@ Java21_GraalCE-Rocky|ghcr.io/vanes430/java:graalce_21-rocky
 Java17_GraalCE-Rocky|ghcr.io/vanes430/java:graalce_17-rocky
 ````
 
-###  GraalVM Oracle JDK (Include EE feature)
+###  ❄ GraalVM Oracle JDK (Include EE feature)
 ````
 Java24_GraalJDK-Debian|ghcr.io/vanes430/java:graaljdk_24-debian
 Java21_GraalJDK-Debian|ghcr.io/vanes430/java:graaljdk_21-debian
