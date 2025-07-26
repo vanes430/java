@@ -11,6 +11,7 @@ These images support multiple Java distributions and versions, across both **Deb
 ````
 Java21_Adoptium-Debian|ghcr.io/vanes430/java:adoptium_21-debian
 Java17_Adoptium-Debian|ghcr.io/vanes430/java:adoptium_17-debian
+Java24_Adoptium-Rocky|ghcr.io/vanes430/java:adoptium_24-rocky
 Java21_Adoptium-Rocky|ghcr.io/vanes430/java:adoptium_21-rocky
 Java17_Adoptium-Rocky|ghcr.io/vanes430/java:adoptium_17-rocky
 ````
@@ -53,4 +54,9 @@ Java21_Zulu-Debian|ghcr.io/vanes430/java:zulu_21-debian
 Java17_Zulu-Debian|ghcr.io/vanes430/java:zulu_17-debian
 Java21_Zulu-Rocky|ghcr.io/vanes430/java:zulu_21-rocky
 Java17_Zulu-Rocky|ghcr.io/vanes430/java:zulu_17-rocky
+````
+
+### 🔥 Shipilev JDK
+````
+Java24_Shipilev-Rocky|ghcr.io/vanes430/java:shipilev_24-rocky
 ````
