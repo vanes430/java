@@ -5,6 +5,10 @@ Welcome! This repository provides **ready-to-use Docker images** tailored for [P
 
 These images support multiple Java distributions and versions, across both **Debian** and **Rocky Linux** bases.
 
+Image Path
+````
+<Java Version>_<Java Vendor>-<OS Bases>|ghcr.io/vanes430/java:<Java Version>_<Java Vendor>-<OS Bases>
+````
 ## 🔧 Available Java Images
 ------------------------
 ### ☕ Adoptium JDK
