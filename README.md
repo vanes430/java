@@ -26,6 +26,9 @@ Java21_Bellsoft-Debian|ghcr.io/vanes430/java:bellsoft_21-debian
 Java17_Bellsoft-Debian|ghcr.io/vanes430/java:bellsoft_17-debian
 Java21_Bellsoft-Rocky|ghcr.io/vanes430/java:bellsoft_21-rocky
 Java17_Bellsoft-Rocky|ghcr.io/vanes430/java:bellsoft_17-rocky
+Java11_Bellsoft-Rocky|ghcr.io/vanes430/java:bellsoft_11-rocky
+Java8_Bellsoft-Rocky|ghcr.io/vanes430/java:bellsoft_8-rocky
+
 ````
 
 ### 🟢 Amazon Corretto JDK
