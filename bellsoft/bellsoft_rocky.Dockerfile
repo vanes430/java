@@ -11,7 +11,7 @@ LABEL org.opencontainers.image.source="https://github.com/vanes430/java"
 LABEL org.opencontainers.image.licenses=MIT
 LABEL org.opencontainers.image.description="Multi-version BellSoft Liberica Image (Rocky Linux)"
 
-RUN microdnf install -y bsdtar curl jq ca-certificates shadow-utils tar gzip glibc-langpack-en && \
+RUN microdnf install -y bsdtar curl jq ca-certificates shadow-utils tar gzip glibc-langpack-en iproute && \
     microdnf clean all
 
 RUN set -e; \
