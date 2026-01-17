@@ -1,0 +1,85 @@
+name: Build and Push Java Images
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        vendor: [adoptium, bellsoft, corretto, graalee, zulu]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT_TOKEN }}
+
+      - name: Generate and Build All Versions
+        run: |
+          # 1. Enter the vendor directory and run the install script
+          cd ${{ matrix.vendor }}
+          chmod +x ${{ matrix.vendor }}_install.sh
+          ./${{ matrix.vendor }}_install.sh 21 25
+          cd ..
+
+          # 2. Build Rocky Linux images first
+          for dockerfile in target/${{ matrix.vendor }}_rocky_*.Dockerfile; do
+            [ -e "$dockerfile" ] || continue
+            TAG_NAME=$(basename "$dockerfile" .Dockerfile)
+            echo "--- Building $TAG_NAME ---"
+            docker buildx build --platform linux/amd64,linux/arm64 \
+              --provenance=false --sbom=false -f "$dockerfile" \
+              -t ${{ env.REGISTRY }}/${{ github.repository_owner }}/java:"$TAG_NAME" --push .
+          done
+
+          # 3. Build Debian images next
+          for dockerfile in target/${{ matrix.vendor }}_debian_*.Dockerfile; do
+            [ -e "$dockerfile" ] || continue
+            TAG_NAME=$(basename "$dockerfile" .Dockerfile)
+            echo "--- Building $TAG_NAME ---"
+            docker buildx build --platform linux/amd64,linux/arm64 \
+              --provenance=false --sbom=false -f "$dockerfile" \
+              -t ${{ env.REGISTRY }}/${{ github.repository_owner }}/java:"$TAG_NAME" --push .
+          done
+
+  cleanup:
+    name: 🧹 Cleanup
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      packages: write
+    steps:
+      - name: Delete untagged images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'java'
+          package-type: 'container'
+          token: ${{ secrets.PAT_TOKEN }}
+          min-versions-to-keep: 0
+          delete-only-untagged-versions: 'true'
