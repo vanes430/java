@@ -38,6 +38,15 @@ GraalEE_Rocky_21|ghcr.io/vanes430/java:graalee_rocky_21
 GraalEE_Rocky_25|ghcr.io/vanes430/java:graalee_rocky_25
 ````
 
+### 🚀 GraalVM EE + NUMA (Optimized for Folia)
+These images include `numactl` and `libnuma` to support the new WORK_STEALING scheduler in Folia (see [commit eee7128](https://github.com/PaperMC/Folia/commit/eee7128bc810195ad758ea5ace1b72c600896d3b)), which provides better thread locality and lower latency.
+````
+GraalEE_Numa_Debian_21|ghcr.io/vanes430/java:graalee_numa_debian_21
+GraalEE_Numa_Debian_25|ghcr.io/vanes430/java:graalee_numa_debian_25
+GraalEE_Numa_Rocky_21|ghcr.io/vanes430/java:graalee_numa_rocky_21
+GraalEE_Numa_Rocky_25|ghcr.io/vanes430/java:graalee_numa_rocky_25
+````
+
 ### 💙 Azul Zulu JDK
 ````
 Zulu_Debian_21|ghcr.io/vanes430/java:zulu_debian_21

@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        vendor: [adoptium, bellsoft, corretto, graalee, zulu]
+        vendor: [adoptium, bellsoft, corretto, graalee, zulu, graalee_numa]
 
     steps:
       - name: Checkout repository

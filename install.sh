@@ -7,7 +7,7 @@
 VERSIONS=($@)
 
 # Loop through each vendor directory
-for vendor in adoptium bellsoft corretto graalee zulu; do
+for vendor in adoptium bellsoft corretto graalee zulu graalee_numa; do
     if [ -f "$vendor/${vendor}_install.sh" ]; then
         echo "--- Processing $vendor ---"
         cd "$vendor" || continue
