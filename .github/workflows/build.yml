@@ -81,5 +81,5 @@ jobs:
           package-name: 'java'
           package-type: 'container'
           token: ${{ secrets.PAT_TOKEN }}
-          min-versions-to-keep: 4
+          min-versions-to-keep: 40
           delete-only-untagged-versions: 'true'
