@@ -1,3 +1,4 @@
+[![Build and Push Java Images](https://github.com/vanes430/java/actions/workflows/build.yml/badge.svg)](https://github.com/vanes430/java/actions/workflows/build.yml)
 # Pterodactyl Java Docker Images
 ------------------------
 
